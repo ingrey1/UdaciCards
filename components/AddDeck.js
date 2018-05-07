@@ -11,7 +11,12 @@ class AddDeck extends Component {
   addingDeck = () => {
     if (this.state.title.length > 0) {
       this.props.newDeck({ title: this.state.title, questions: [] });
-      this.props.navigation.navigate('Decks');
+      setTimeout( () => { 
+
+           this.props.navigation.navigate('Deck', {data: this.props.store[this.state.title]}); 
+
+      }, 250 )
+     
     }
   };
 
